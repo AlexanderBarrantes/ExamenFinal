@@ -35,5 +35,9 @@ namespace Examen.Models
         public System.Data.Entity.DbSet<Modelos.Modelos.Productos> Productos { get; set; }
 
         public System.Data.Entity.DbSet<Modelos.Modelos.Inventarios> Inventarios { get; set; }
+
+        public System.Data.Entity.DbSet<Modelos.Modelos.Encabezado> Encabezadoes { get; set; }
+
+        public System.Data.Entity.DbSet<Modelos.Modelos.Factura> Facturas { get; set; }
     }
 }

@@ -88,3 +88,4 @@ C:\Users\Alexander\Desktop\Examen\Examen\obj\Debug\Examen.dll
 C:\Users\Alexander\Desktop\Examen\Examen\obj\Debug\Examen.pdb
 C:\Users\Alexander\Desktop\Examen\Examen\obj\Debug\Examen.Migrations.examen.resources
 C:\Users\Alexander\Desktop\Examen\Examen\obj\Debug\WebExamen.csproj.GenerateResource.Cache
+C:\Users\Alexander\Desktop\Examen\Examen\obj\Debug\Examen.Migrations.examen_factura.resources

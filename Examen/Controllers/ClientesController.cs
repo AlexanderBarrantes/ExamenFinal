@@ -19,7 +19,6 @@ namespace Examen.Controllers
         public ActionResult Index()
         {
             return View(db.Clientes.ToList());
-            //return Json(db.Clientes.ToList(), JsonRequestBehavior.AllowGet);
         }
 
         // GET: Clientes/Details/5

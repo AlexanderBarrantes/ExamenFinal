@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Modelos\Clientes.cs" />
+    <Compile Include="Modelos\Encabezado.cs" />
+    <Compile Include="Modelos\Factura.cs" />
     <Compile Include="Modelos\Inventarios.cs" />
     <Compile Include="Modelos\Productos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

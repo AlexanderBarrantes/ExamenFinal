@@ -11,8 +11,9 @@
     <h4>Inventarios</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Producto)
+        @Html.HiddenFor(model => model.id, new { htmlAttributes = new { @id = "id" } });
+        <dt>        
+                @Html.DisplayNameFor(model => model.Producto)
         </dt>
 
         <dd>
@@ -50,6 +51,13 @@
         <dd>
             @Html.DisplayFor(model => model.GravadoExento)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
 
     </dl>
 
@@ -57,8 +65,38 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="button" id="delete" value="Delete" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }
 </div>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+<script>
+    $("#delete").click(function () {
+        request = $.ajax({
+            url: "http://localhost:64372/inventarios/eliminar",
+            type: "post",
+            data: {
+                id:$("#id").val()
+            },
+
+        });
+
+        // Callback handler that will be called on success
+        request.done(function (response, textStatus, jqXHR) {
+            // Log a message to the console
+            alert("Eliminado correctamente");
+            window.location.href = "/Inventarios";
+        });
+
+        // Callback handler that will be called on failure
+        request.fail(function (jqXHR, textStatus, errorThrown) {
+            // Log the error to the console
+            console.error(
+                "The following error occurred: " +
+                textStatus, errorThrown
+            );
+        });
+    })
+</script>

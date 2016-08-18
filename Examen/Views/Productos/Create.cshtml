@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create Product</h2>
 
 
 @using (Html.BeginForm()) 
@@ -18,7 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control",@id = "Nombre" } })
                 @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Marca, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Marca, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Marca, new { htmlAttributes = new { @class = "form-control", @id = "Marca" } })
                 @Html.ValidationMessageFor(model => model.Marca, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Familia, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Familia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Familia, new { htmlAttributes = new { @class = "form-control", @id = "Familia" } })
                 @Html.ValidationMessageFor(model => model.Familia, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -42,7 +42,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CasaFabricación, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CasaFabricación, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.CasaFabricación, new { htmlAttributes = new { @class = "form-control", @id = "CasaFabricación" } })
                 @Html.ValidationMessageFor(model => model.CasaFabricación, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TipoUnidad, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TipoUnidad, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.TipoUnidad, new { htmlAttributes = new { @class = "form-control", @id = "TipoUnidad" } })
                 @Html.ValidationMessageFor(model => model.TipoUnidad, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Departamento, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Departamento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Departamento, new { htmlAttributes = new { @class = "form-control", @id = "Departamento" } })
                 @Html.ValidationMessageFor(model => model.Departamento, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -67,7 +67,7 @@
             @Html.LabelFor(model => model.Activo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.Activo)
+                    @Html.EditorFor(model => model.Activo, new { htmlAttributes = new {  @id = "Activo" } }) 
                     @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -76,7 +76,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Descuento, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Descuento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Descuento, new { htmlAttributes = new { @class = "form-control", @id = "Descuento" } })
                 @Html.ValidationMessageFor(model => model.Descuento, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -84,7 +84,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FechaIngreso, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FechaIngreso, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.FechaIngreso, new { htmlAttributes = new { @class = "form-control", @id = "FechaIngreso" } })
                 @Html.ValidationMessageFor(model => model.FechaIngreso, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -92,7 +92,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Unidad, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Unidad, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Unidad, new { htmlAttributes = new { @class = "form-control", @id = "Unidad" } })
                 @Html.ValidationMessageFor(model => model.Unidad, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -100,14 +100,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Impuesto, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Impuesto, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Impuesto, new { htmlAttributes = new { @class = "form-control", @id = "Impuesto" } })
                 @Html.ValidationMessageFor(model => model.Impuesto, "", new { @class = "text-danger" })
             </div>
         </div>
-
+            
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="button" value="Create" id="add" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -120,3 +120,55 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+<script>
+   
+    $("#add").click(function () {
+        var prod = {};       
+        prod.Nombre = $("#Nombre").val();
+        prod.Marca = $("#Marca").val();
+        prod.Familia = $("#Familia").val();
+        prod.CasaFabricación = $("#CasaFabricación").val();
+        prod.TipoUnidad = $("#TipoUnidad").val();
+        prod.Departamento = $("#Departamento").val();
+        prod.Activo = $("#Activo").val();
+        prod.Descuento = $("#Descuento").val();
+        prod.FechaIngreso = $("#FechaIngreso").val();
+        prod.Unidad = $("#Unidad").val(); FechaIngreso
+        prod.Impuesto = $("#Impuesto").val();
+       
+        var jsonData = JSON.stringify({
+            prod: prod
+        });
+        
+        request = $.ajax({
+            url: "http://localhost:64372/Productos/addt",
+            type: "post",
+            data: {
+                id_number: prod.Nombre, Marca: prod.Marca, Familia: prod.Familia,
+                CasaFabricación: prod.CasaFabricación, TipoUnidad: prod.TipoUnidad, Departamento: prod.Departamento,
+                Activo: prod.Activo,Descuento:prod.Descuento, FechaIngreso: prod.FechaIngreso, Unidad: prod.Unidad, Impuesto: prod.Impuesto
+            },
+            
+        });
+
+        // Callback handler that will be called on success
+        request.done(function (response, textStatus, jqXHR) {
+            // Log a message to the console
+            alert("Saved");
+            window.location.href = "/Productos";
+        });
+
+            // Callback handler that will be called on failure
+            request.fail(function (jqXHR, textStatus, errorThrown) {
+                // Log the error to the console
+                console.error(
+                    "The following error occurred: "+
+                    textStatus, errorThrown
+                );
+            });
+    })
+    
+</script>

@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Inventario</h2>
 
 
 @using (Html.BeginForm()) 
@@ -18,7 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Producto, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Producto, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Producto, new { htmlAttributes = new { @class = "form-control", @id = "Producto" } })
                 @Html.ValidationMessageFor(model => model.Producto, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Cantidad, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { @class = "form-control", @id = "Cantidad" } })
                 @Html.ValidationMessageFor(model => model.Cantidad, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CantidadMinima, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CantidadMinima, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.CantidadMinima, new { htmlAttributes = new { @class = "form-control", @id = "CantidadMinima" } })
                 @Html.ValidationMessageFor(model => model.CantidadMinima, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -42,7 +42,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CantidadMaxima, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CantidadMaxima, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.CantidadMaxima, new { htmlAttributes = new { @class = "form-control", @id = "CantidadMaxima" } })
                 @Html.ValidationMessageFor(model => model.CantidadMaxima, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -51,7 +51,7 @@
             @Html.LabelFor(model => model.GravadoExento, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.GravadoExento)
+                    @Html.EditorFor(model => model.GravadoExento, new { htmlAttributes = new {  @id = "GravadoExento" } })
                     @Html.ValidationMessageFor(model => model.GravadoExento, "", new { @class = "text-danger" })
                     <i>Check para Gravado</i>
                 </div>
@@ -59,8 +59,19 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Precio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Precio, new { htmlAttributes = new { @id = "Precio" } })
+                    @Html.ValidationMessageFor(model => model.Precio, "", new { @class = "text-danger" })
+                                   </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="button" value="Create" id="addt" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -69,7 +80,55 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+<script>
+
+    $("#addt").click(function () {
+        var costumer = {};
+        costumer.Producto = $("#Producto").val();
+        costumer.Cantidad = $("#Cantidad").val();
+        costumer.CantidadMinima = $("#CantidadMinima").val();
+        costumer.CantidadMaxima = $("#CantidadMaxima").val();
+        costumer.GravadoExento = $("#GravadoExento").val();
+        costumer.Precio = $("#Precio").val();
+
+        
+
+
+        var jsonData = JSON.stringify({
+            costumer: costumer
+        });
+
+
+        request = $.ajax({
+            url: "http://localhost:64372/inventarios/addt",
+            type: "post",
+            data: {
+                id_number: costumer.Producto, Cantidad: costumer.Cantidad, CantidadMinima: costumer.CantidadMinima, CantidadMaxima: costumer.CantidadMaxima,
+                GravadoExento: costumer.GravadoExento, Precio: costumer.Precio
+            },
+
+        });
+
+        // Callback handler that will be called on success
+        request.done(function (response, textStatus, jqXHR) {
+            // Log a message to the console
+            alert("Saved");
+            window.location.href = "/Inventarios";
+        });
+
+        // Callback handler that will be called on failure
+        request.fail(function (jqXHR, textStatus, errorThrown) {
+            // Log the error to the console
+            console.error(
+                "The following error occurred: " +
+                textStatus, errorThrown
+            );
+        });
+    })
+
+</script>

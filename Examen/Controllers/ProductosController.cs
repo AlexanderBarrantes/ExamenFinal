@@ -46,8 +46,8 @@ namespace Examen.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Identificador,Nombre,Marca,Familia,CasaFabricación,TipoUnidad,Departamento,Activo,Descuento,FechaIngreso,Unidad,Impuesto")] Productos productos)
+    //   [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "id,Nombre,Marca,Familia,CasaFabricación,TipoUnidad,Departamento,Activo,Descuento,FechaIngreso,Unidad,Impuesto")] Productos productos)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,45 @@ namespace Examen.Controllers
 
             return View(productos);
         }
+        [HttpPost]
+        public ActionResult addt(string id_number, string Marca, string Familia,string CasaFabricación, string TipoUnidad, string Departamento,bool  Activo,
+            double Descuento,string FechaIngreso,int Unidad,double Impuesto)
+            
+        {
+            Productos producto = new Productos();
+            producto.Nombre = id_number;
+            producto.Marca = Marca;
+            producto.Familia = Familia;
+            producto.CasaFabricación = CasaFabricación;
+            producto.TipoUnidad = TipoUnidad;
+            producto.Departamento = Departamento;
+            producto.Activo = Activo;
+            producto.Descuento = Descuento;
+            producto.FechaIngreso = Convert.ToDateTime(FechaIngreso);
+            producto.Unidad = Unidad;
+            producto.Impuesto = Impuesto;
+            db.Productos.Add(producto);
+            db.SaveChanges();
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
 
+
+        }
+        [HttpPost]
+        public ActionResult eliminar(int id)
+        {
+            if (id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Productos productos = db.Productos.Find(id);
+            if (productos == null)
+            {
+                return HttpNotFound();
+            }
+            db.Productos.Remove(productos);
+            db.SaveChanges();
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
         // GET: Productos/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -79,7 +117,7 @@ namespace Examen.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Identificador,Nombre,Marca,Familia,CasaFabricación,TipoUnidad,Departamento,Activo,Descuento,FechaIngreso,Unidad,Impuesto")] Productos productos)
+        public ActionResult Edit([Bind(Include = "id,Nombre,Marca,Familia,CasaFabricación,TipoUnidad,Departamento,Activo,Descuento,FechaIngreso,Unidad,Impuesto")] Productos productos)
         {
             if (ModelState.IsValid)
             {

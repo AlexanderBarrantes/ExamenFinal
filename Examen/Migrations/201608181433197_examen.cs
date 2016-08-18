@@ -26,23 +26,48 @@ namespace Examen.Migrations
                 .PrimaryKey(t => t.id);
             
             CreateTable(
+                "dbo.Encabezadoes",
+                c => new
+                    {
+                        id = c.Int(nullable: false, identity: true),
+                        Cliente = c.String(),
+                        Fecha = c.DateTime(nullable: false),
+                        Subtotal = c.Double(nullable: false),
+                        Impuestos = c.Double(nullable: false),
+                        Total = c.Double(nullable: false),
+                    })
+                .PrimaryKey(t => t.id);
+            
+            CreateTable(
+                "dbo.Facturas",
+                c => new
+                    {
+                        id = c.Int(nullable: false, identity: true),
+                        NumeroFactura = c.String(),
+                        productos = c.String(),
+                        Activo = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.id);
+            
+            CreateTable(
                 "dbo.Inventarios",
                 c => new
                     {
-                        Identificador = c.Int(nullable: false, identity: true),
+                        id = c.Int(nullable: false, identity: true),
                         Producto = c.String(),
-                        Cantidad = c.String(),
+                        Precio = c.String(),
+                        Cantidad = c.Int(nullable: false),
                         CantidadMinima = c.Int(nullable: false),
                         CantidadMaxima = c.Int(nullable: false),
                         GravadoExento = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.Identificador);
+                .PrimaryKey(t => t.id);
             
             CreateTable(
                 "dbo.Productos",
                 c => new
                     {
-                        Identificador = c.Int(nullable: false, identity: true),
+                        id = c.Int(nullable: false, identity: true),
                         Nombre = c.String(),
                         Marca = c.String(),
                         Familia = c.String(),
@@ -55,7 +80,7 @@ namespace Examen.Migrations
                         Unidad = c.Int(nullable: false),
                         Impuesto = c.Double(nullable: false),
                     })
-                .PrimaryKey(t => t.Identificador);
+                .PrimaryKey(t => t.id);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -146,6 +171,8 @@ namespace Examen.Migrations
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Productos");
             DropTable("dbo.Inventarios");
+            DropTable("dbo.Facturas");
+            DropTable("dbo.Encabezadoes");
             DropTable("dbo.Clientes");
         }
     }

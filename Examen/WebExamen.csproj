@@ -197,6 +197,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\EncabezadoesController.cs" />
+    <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventariosController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -204,9 +206,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608170419113_examen.cs" />
-    <Compile Include="Migrations\201608170419113_examen.Designer.cs">
-      <DependentUpon>201608170419113_examen.cs</DependentUpon>
+    <Compile Include="Migrations\201608181433197_examen.cs" />
+    <Compile Include="Migrations\201608181433197_examen.Designer.cs">
+      <DependentUpon>201608181433197_examen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608181438366_examen_factura.cs" />
+    <Compile Include="Migrations\201608181438366_examen_factura.Designer.cs">
+      <DependentUpon>201608181438366_examen_factura.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -292,6 +298,16 @@
     <Content Include="Views\Inventarios\Details.cshtml" />
     <Content Include="Views\Inventarios\Edit.cshtml" />
     <Content Include="Views\Inventarios\Index.cshtml" />
+    <Content Include="Views\Encabezadoes\Create.cshtml" />
+    <Content Include="Views\Encabezadoes\Delete.cshtml" />
+    <Content Include="Views\Encabezadoes\Details.cshtml" />
+    <Content Include="Views\Encabezadoes\Edit.cshtml" />
+    <Content Include="Views\Encabezadoes\Index.cshtml" />
+    <Content Include="Views\Factura\Create.cshtml" />
+    <Content Include="Views\Factura\Delete.cshtml" />
+    <Content Include="Views\Factura\Details.cshtml" />
+    <Content Include="Views\Factura\Edit.cshtml" />
+    <Content Include="Views\Factura\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -319,8 +335,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608170419113_examen.resx">
-      <DependentUpon>201608170419113_examen.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608181433197_examen.resx">
+      <DependentUpon>201608181433197_examen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608181438366_examen_factura.resx">
+      <DependentUpon>201608181438366_examen_factura.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

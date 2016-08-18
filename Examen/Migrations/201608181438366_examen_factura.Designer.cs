@@ -7,13 +7,13 @@ namespace Examen.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class examen : IMigrationMetadata
+    public sealed partial class examen_factura : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(examen));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(examen_factura));
         
         string IMigrationMetadata.Id
         {
-            get { return "201608170419113_examen"; }
+            get { return "201608181438366_examen_factura"; }
         }
         
         string IMigrationMetadata.Source

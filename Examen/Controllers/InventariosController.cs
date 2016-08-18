@@ -46,8 +46,8 @@ namespace Examen.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Identificador,Producto,Cantidad,CantidadMinima,CantidadMaxima,GravadoExento")] Inventarios inventarios)
+     //   [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "id,Producto,Cantidad,CantidadMinima,CantidadMaxima,GravadoExento,Precio")] Inventarios inventarios)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +58,65 @@ namespace Examen.Controllers
 
             return View(inventarios);
         }
+        [HttpPost]
+        public ActionResult addt(string id_number, string Cantidad, string CantidadMinima, string CantidadMaxima, bool GravadoExento,string Precio)
+        {
+
+            Inventarios inventario = new Inventarios();
+            inventario.Producto = id_number;
+            inventario.Cantidad = Convert.ToInt32(Cantidad); 
+            inventario.CantidadMinima = Convert.ToInt32(CantidadMinima) ;
+            inventario.CantidadMaxima = Convert.ToInt32(CantidadMaxima);
+            inventario.GravadoExento = GravadoExento;
+            inventario.Precio = Precio;
+
+
+            db.Inventarios.Add(inventario);
+            db.SaveChanges();
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
+        [HttpPost]
+        public ActionResult editar(int id, string id_number, string Producto, string Cantidad, string CantidadMinima, string CantidadMaxima, string GravadoExento,string Precio)
+            {
+
+            Inventarios inv = db.Inventarios.Find(id);
+
+            inv.Producto = id_number;
+            inv.Cantidad = Convert.ToInt32(Cantidad); 
+            inv.CantidadMinima = Convert.ToInt32(CantidadMinima);
+            inv.CantidadMaxima = Convert.ToInt32( CantidadMaxima);
+            inv.GravadoExento = Convert.ToBoolean(GravadoExento);
+            inv.Precio= Precio;
+
+
+
+            db.Entry(inv).State = EntityState.Modified;
+            db.SaveChanges();
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+        [HttpPost]
+        public ActionResult eliminar(int id)
+        {
+            if (id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Inventarios inventarios = db.Inventarios.Find(id);
+            if (inventarios == null)
+            {
+                return HttpNotFound();
+            }
+            db.Inventarios.Remove(inventarios);
+            db.SaveChanges();
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
+
+
+
+
+
 
         // GET: Inventarios/Edit/5
         public ActionResult Edit(int? id)
@@ -79,7 +138,7 @@ namespace Examen.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Identificador,Producto,Cantidad,CantidadMinima,CantidadMaxima,GravadoExento")] Inventarios inventarios)
+        public ActionResult Edit([Bind(Include = "id,Producto,Cantidad,CantidadMinima,CantidadMaxima,GravadoExento,Precio")] Inventarios inventarios)
         {
             if (ModelState.IsValid)
             {

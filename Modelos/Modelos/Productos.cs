@@ -10,7 +10,7 @@ namespace Modelos.Modelos
     public class Productos
     {
         [Key]
-        public int Identificador { get; set; }
+        public int id { get; set; }
         public string Nombre { get; set; }
         public string Marca { get; set; }
         public string Familia { get; set; }
