@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\Encabezadoes1Controller.cs" />
     <Compile Include="Controllers\EncabezadoesController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -308,6 +309,11 @@
     <Content Include="Views\Factura\Details.cshtml" />
     <Content Include="Views\Factura\Edit.cshtml" />
     <Content Include="Views\Factura\Index.cshtml" />
+    <Content Include="Views\Encabezadoes1\Create.cshtml" />
+    <Content Include="Views\Encabezadoes1\Delete.cshtml" />
+    <Content Include="Views\Encabezadoes1\Details.cshtml" />
+    <Content Include="Views\Encabezadoes1\Edit.cshtml" />
+    <Content Include="Views\Encabezadoes1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
