@@ -1,0 +1,164 @@
+﻿@model Modelos.Modelos.Clientes
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Clientes</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cedula, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "form-control",@id="Cedula" } })
+                @Html.ValidationMessageFor(model => model.Cedula, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control",@id = "Nombre" } })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Apellido, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form-control", @id = "Apellido" } })
+                @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FechaNacimiento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FechaNacimiento, new { htmlAttributes = new { @class = "form-control" , @id = "FechaNacimiento" } })
+                @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Dirección, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Dirección, new { htmlAttributes = new { @class = "form-control", @id = "Dirección" } })
+                @Html.ValidationMessageFor(model => model.Dirección, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EstadoCivil, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EstadoCivil, new { htmlAttributes = new { @class = "form-control",@id = "EstadoCivil" } })
+                @Html.ValidationMessageFor(model => model.EstadoCivil, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Sexo, new { htmlAttributes = new { @class = "form-control", @id = "Sexo" } })
+                @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FechaIngreso, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FechaIngreso, new { htmlAttributes = new { @class = "form-control",@id = "FechaIngreso" } })
+                @Html.ValidationMessageFor(model => model.FechaIngreso, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tipo, new { htmlAttributes = new { @class = "form-control", @id = "Tipo" } })
+                @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descuento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Descuento, new { htmlAttributes = new { @class = "form-control", @id = "Descuento" } })
+                @Html.ValidationMessageFor(model => model.Descuento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Create" id="add" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+<script>
+    $("#add").click(function () {
+        var costumer = {};
+        costumer.Cedula = $("#Cedula").val();
+
+        costumer.Nombre = $("#Nombre").val();
+        costumer.Apellido = $("#Apellido").val();
+        costumer.FechaNacimiento = $("#FechaNacimiento").val();
+        costumer.Dirección = $("#Dirección").val();
+        costumer.EstadoCivil = $("#EstadoCivil").val();
+        costumer.Sexo = $("#Sexo").val();
+        costumer.FechaIngreso = $("#FechaIngreso").val(); 
+        costumer.Tipo = $("#Tipo").val(); FechaIngreso
+        costumer.Descuento = $("#Descuento").val(); 
+
+
+        var jsonData = JSON.stringify({
+            costumer: costumer
+        });
+     
+
+        request = $.ajax({
+            url: "http://localhost:64372/clientes/addt",
+            type: "post",
+            data: {
+                id_number:   costumer.Cedula, first_name:   costumer.Nombre, last_name:   costumer.Apellido, birthday:   costumer.FechaNacimiento,
+                address: costumer.Dirección, civil_status: costumer.EstadoCivil, sex: costumer.Sexo,
+                admission_date: costumer.FechaIngreso, client_type: costumer.Tipo, discount: costumer.Descuento
+            },
+            
+        });
+
+        // Callback handler that will be called on success
+        request.done(function (response, textStatus, jqXHR) {
+            // Log a message to the console
+            alert("Saved");
+            window.location.href = "/Clientes";
+        });
+
+        // Callback handler that will be called on failure
+        request.fail(function (jqXHR, textStatus, errorThrown) {
+            // Log the error to the console
+            console.error(
+                "The following error occurred: " +
+                textStatus, errorThrown
+            );
+        });
+    })
+
+</script>

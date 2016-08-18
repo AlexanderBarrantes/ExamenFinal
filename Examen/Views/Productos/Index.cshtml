@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Modelos.Modelos.Productos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Familia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CasaFabricación)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoUnidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Activo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descuento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaIngreso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Impuesto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {*@
+    @*<tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Familia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CasaFabricación)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoUnidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Activo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descuento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaIngreso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Impuesto)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Identificador }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Identificador }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Identificador })
+        </td>
+    </tr>
+}*@
+
+</table>
